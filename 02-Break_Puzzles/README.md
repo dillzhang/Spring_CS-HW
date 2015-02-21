@@ -10,7 +10,7 @@ Once a queen has been placed, it checks if the move is valid. If invalid, we hav
 The recursive reduction runs on moving down columns while a valid piece has no been placed. Once a valid piece has been placed in a column, it simplifies down to the next row. 
 
 To see any solution, just call:
-'''
+```
 java Queens <n>
-'''
-where 'n' is the dimensions of the board.
+```
+where `n` is the dimensions of the board.
