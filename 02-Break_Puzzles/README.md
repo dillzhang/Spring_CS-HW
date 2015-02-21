@@ -13,4 +13,4 @@ To see any solution, just call:
 ```
 java Queens <n>
 ```
-where `n` is the dimensions of the board.
+where `<n>` is the dimensions of the board.
