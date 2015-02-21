@@ -21,9 +21,9 @@ public class Queens {
 
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
-		returner += board[i][j];
+		returner += board[i][j] + "  ";
 	    }
-	    returner += "\n";
+	    returner += "\n\n";
 	}
 
 	return returner;
