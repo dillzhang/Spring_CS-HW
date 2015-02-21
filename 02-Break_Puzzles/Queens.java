@@ -1,9 +1,14 @@
 public class Queens {
+
+    // Instance Variable ------------------------------------------------------------------------------------------------------------------------------------
+
     private int dimensions;
     private char[][] board;
     private boolean solved;
     private char marker = '#';
     private char piece = 'O';
+
+    // Constructor ------------------------------------------------------------------------------------------------------------------------------------------
 
     public Queens(int n) {
 	solved = false;
@@ -15,6 +20,8 @@ public class Queens {
 	    }
 	}
     }
+
+    // toString() -------------------------------------------------------------------------------------------------------------------------------------------
 
     public String toString() {
 	String returner = "[2J\n";
@@ -29,6 +36,8 @@ public class Queens {
 	return returner;
     }
     
+    // Utility Methods ------------------------------------------------------------------------------------------------------------------------------------
+
     public void delay(int n) {
 	try {
 	    Thread.sleep(n);
@@ -36,6 +45,8 @@ public class Queens {
 	
 	}
     }
+
+    // Methods ----------------------------------------------------------------------------------------------------------------------------------------------
 
     public void NQueens() {
 	for (int i = 0; i < dimensions; i++) {
@@ -54,8 +65,8 @@ public class Queens {
 	    solved = true;
 	}
 	
-	//delay(50);
-	//System.out.println(this);
+	delay(50);
+	System.out.println(this);
 
 	board[x][y] = piece;
 
@@ -80,7 +91,7 @@ public class Queens {
 	}
 	return false;
     }
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// Main Method ----------------------------------------------------------------------------------------------------------------------------------------------
     
     public static void main(String[] args) {
 	
