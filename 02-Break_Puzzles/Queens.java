@@ -65,8 +65,8 @@ public class Queens {
 	    solved = true;
 	}
 	
-	delay(50);
-	System.out.println(this);
+	//delay(50);
+	//System.out.println(this);
 
 	board[x][y] = piece;
 
