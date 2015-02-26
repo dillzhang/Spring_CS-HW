@@ -9,38 +9,17 @@ public class Mergesort {
 
 	if (alpha.size() >= 2) {
 
-	    ArrayList<ArrayList<Integer>> splits = split(alpha);
+	    ArrayList<Integer> a = new ArrayList<Integer>();
 
-	    ArrayList<Integer> a = splits.get(0);
-	    ArrayList<Integer> b = splits.get(1);
-	    
-	    a = mergesort(a);
-	    b = mergesort(b);
+	    while (a.size() < alpha.size()) {
+		a.add(alpha.remove(0));
+	    }
 
-	    return merge(a, b);
+	    return merge(a, alpha);
 	    
 	} else {
 	    return alpha;
 	}
-    }
-
-    // split() ==============================================================================================================================================
-
-    public static ArrayList<ArrayList<Integer>> split(ArrayList<Integer> beta) {
-
-	ArrayList<ArrayList<Integer>> omega = new ArrayList<ArrayList<Integer>>(2);
-
-	ArrayList<Integer> alpha = new ArrayList<Integer>();
-
-	while (alpha.size() < beta.size()) {
-	    alpha.add(beta.get(0));
-	    beta.remove(0);
-	}
-
-	omega.add(alpha);
-	omega.add(beta);
-
-	return omega;
     }
 
     // merge() ==============================================================================================================================================
