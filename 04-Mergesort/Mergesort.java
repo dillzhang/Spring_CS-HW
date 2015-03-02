@@ -47,6 +47,8 @@ public class Mergesort {
 
     // main() ===============================================================================================================================================
 
+    /*
+
     public static void main(String args[]) {
 	
 	//Merge Sort Testing
@@ -91,5 +93,5 @@ public class Mergesort {
 
 	System.out.println("alphabet: " + alphabet);
 
-    }
+    } */
 }
