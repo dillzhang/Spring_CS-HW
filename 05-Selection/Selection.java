@@ -30,7 +30,7 @@ public class Selection {
 	    }
 	}
 
-	D[SI + 1] = pivot;
+	D[SI] = pivot;
 	
 	return D;
     }
