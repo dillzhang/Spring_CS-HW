@@ -21,7 +21,7 @@ public class LLit<E> implements Iterator<E>{
     }
     
     public void remove() {
-	if (x != nulld) {
+	if (x != null) {
 	    x.setNext(t.getNext());
 	    x = null;
 	} else {
