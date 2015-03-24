@@ -1,3 +1,5 @@
+import java.lang.IndexOutOfBoundsException;
+
 public class LList<E> {
 
     private Node<E> start;
@@ -11,12 +13,12 @@ public class LList<E> {
 
     public String toString() {
 	Node<E> temp = start.getNext();
-	String s = "";
+	String s = "Top --> ";
 	while (temp != null) {
 	    s += temp.getData() + " --> ";
 	    temp = temp.getNext();
 	}
-	return s + "null";
+	return s + "Bottom";
     }
 
     public void add(E data) {
