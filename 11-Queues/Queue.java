@@ -45,7 +45,3 @@ public class Queue<E> {
 	return start.getData();
     }
 }
-
-    
-    
-    
