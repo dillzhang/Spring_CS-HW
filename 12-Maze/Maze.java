@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class Maze {
 
     private char[][] board;
@@ -9,6 +12,10 @@ public class Maze {
     private char exit = '$';
     private char visit = '.';
     private boolean solved = false;
+    private int[][] neighbors = { {1,0} , {0,1} , {-1,0} , {0,-1} };
+    
+    private Queue searchOrder;
+    private Node finale;
 
     public void delay(int n) {
 	try {
@@ -34,23 +41,73 @@ public class Maze {
 		j++;
 	    }
 	} catch (Exception e) {
-	
+	    System.out.println("FAIL");
 	}
     }
 
     public String toString() {
 	String s = "[2J\n";
-	for (int i = 0; i < board.length; i++) {
-	    for (int j = 0; j < board[i].length; j++) {
-		s += board[i][j];
+	for (int i = 0; i < board[0].length; i++) {
+	    for (int j = 0; j < board.length; j++) {
+		s += board[j][i];
 	    }
 	    s += "\n";
 	}
+	return s;
     }
 
-    
+    public void BFS(Node n) {
 	
+	if (board[n.getX()][n.getY()] == exit) {
+	    solved = true;
+	    finale = n;
+	}
+
+	if (solved) {
+	    return;
+	}
+
+	System.out.println(this);
+
+	//System.out.println(n.getX() + ", " + n.getY() + " - " + solved + " - " + board[n.getX()][n.getY()]); 
+
+	board[n.getX()][n.getY()] = visit;
+
+	//delay(50);
+
+	for (int i = 0 ; i < neighbors.length ; i++ ) {
+	    char location = board[n.getX() + neighbors[i][0]][n.getY() + neighbors[i][1]];
+	    if (location == path || location == exit) {
+		Node temp = new Node(n.getX() + neighbors[i][0], n.getY() + neighbors[i][1]);
+		temp.setPrevious(n);
+		searchOrder.enqueue(temp);
+	    }
+	} 
+	BFS(searchOrder.dequeue());
+    }
+
+    public String BFS() {
+	searchOrder = new Queue();
+
+	System.out.println(board[1][1]);
+	Node temp = new Node(1,1);
+	BFS(temp);
 	
+	String path = "";
+	temp = finale;
+	while (temp != null) {
+	    path = "(" + temp.getX() + ", " + temp.getY() + ") --> " + path;
+	    temp = temp.getPrevious();
+	}
+	return path + "EXIT";
+    }
+
+    public static void main(String[] args) {
+	Maze z = new Maze();
 	
-    
+	//System.out.println(z);
+
+	String s = z.BFS();
+	System.out.println(s);
+    }   
 }
