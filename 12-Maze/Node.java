@@ -4,6 +4,10 @@ public class Node {
     private Node next;
     private Node previous;
 
+    public Node() {
+    
+    }
+
     public Node(int xcor, int ycor) {
 	x = xcor;
 	y = ycor;
