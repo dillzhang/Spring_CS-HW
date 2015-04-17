@@ -14,6 +14,10 @@ public class Node {
 	priority = p;
     }
    
+    public String toString() {
+	return "" + x + ", " + y + " - " + priority;    
+    }
+
     public void setNext(Node n) {
 	next = n;
     }

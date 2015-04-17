@@ -3,28 +3,24 @@ import java.lang.IndexOutOfBoundsException;
 public class PQueue {
 
     private Node start;
-    private Node end;
     
     public PQueue() {
 	start = null;
-	end = null;;
     }
-
+    
     public String toString() {
 	String out = "";;
 	for (Node temp = start; temp != null; temp = temp.getNext()) {
 	    out += temp.getX() + ", " + temp.getY() + ", " + temp.getPriority() + "; ";
 	}
 	return out;
-
+    }
     public void enqueue(Node n) {
 	if (start == null) {
 	    start = n;
-	    end = start;
 	} else {
-	    Node temp = n;
-	    end.setNext(temp);
-	    end = temp;
+	    n.setNext(start);
+	    start = n;
 	}
     }
     

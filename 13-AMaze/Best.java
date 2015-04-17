@@ -73,29 +73,33 @@ public class Best {
 
 	board[n.getX()][n.getY()] = visit;
 	
-	System.out.println(this);
-
+	//System.out.println(this);
+	
 	//System.out.println(n.getX() + ", " + n.getY() + " - " + solved + " - " + board[n.getX()][n.getY()]); 
 
 	for (int i = 0 ; i < neighbors.length ; i++ ) {
 	    int xcor = n.getX() + neighbors[i][0];
 	    int ycor = n.getY() + neighbors[i][1];
 	    char location = board[xcor][ycor];
+	    //System.out.println("B: " + xcor + ", " + ycor + " - " + board[xcor][ycor]); 
 	    if (location == path || location == exit) {
+		//System.out.println("A: " + xcor + ", " + ycor + " - " + board[xcor][ycor]); 
 		int prior = (xcor - exitX) * (xcor - exitX) + (ycor - exitY) * (ycor - exitY);
-		Node temp = new Node(n.getX() + neighbors[i][0], n.getY() + neighbors[i][1], prior);
+		Node temp = new Node(xcor, ycor, prior);
 		temp.setPrevious(n);
+		//System.out.println(temp);
 		searchOrder.enqueue(temp);
+		//System.out.println(searchOrder);
 	    }
 	} 
-	System.out.println(searchOrder);
+	//System.out.println(searchOrder);
 	best(searchOrder.dequeue());
     }
 
     public String best() {
         searchOrder = new PQueue();
         
-        System.out.println(board[1][1]);
+        //System.out.println(board[1][1]);
 	
         Node temp = new Node(1,1,625+17*17);
         best(temp);
@@ -111,10 +115,10 @@ public class Best {
     
     public static void main(String[] args) {
         Best z = new Best();
-        
-        //System.out.println(z);
+        System.out.println(z);
         
         String s = z.best();
+	System.out.println(z);
         System.out.println(s);
     }
     
