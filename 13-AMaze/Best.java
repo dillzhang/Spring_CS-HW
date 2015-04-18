@@ -84,8 +84,14 @@ public class Best {
 	    //System.out.println("B: " + xcor + ", " + ycor + " - " + board[xcor][ycor]); 
 	    if (location == path || location == exit) {
 		//System.out.println("A: " + xcor + ", " + ycor + " - " + board[xcor][ycor]); 
-		int prior = (xcor - exitX) * (xcor - exitX) + (ycor - exitY) * (ycor - exitY);
+		
+		//Direct Distance
+		//int prior = (xcor - exitX) * (xcor - exitX) + (ycor - exitY) * (ycor - exitY);
+		
+		//Manhatten Distance
+		int prior = Math.abs(xcor - exitX) + Math.abs(ycor - exitY);
 		Node temp = new Node(xcor, ycor, prior);
+		
 		temp.setPrevious(n);
 		//System.out.println(temp);
 		searchOrder.enqueue(temp);
