@@ -111,10 +111,11 @@ public class Best {
         best(temp);
         
         String path = "";
-        temp = finale;
+        temp = finale.getPrevious();
         while (temp != null) {
             path = "(" + temp.getX() + ", " + temp.getY() + ") --> " + path;
-            temp = temp.getPrevious();
+            board[temp.getX()][temp.getY()] = 'P';
+	    temp = temp.getPrevious();
         }
         return path + "EXIT";
     }

@@ -73,7 +73,7 @@ public class AStar {
 
 	board[n.getX()][n.getY()] = visit;
 	
-	//System.out.println(this);
+	System.out.println(this);
 	
 	//System.out.println(n.getX() + ", " + n.getY() + " - " + solved + " - " + board[n.getX()][n.getY()]); 
 
