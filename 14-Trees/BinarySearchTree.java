@@ -5,7 +5,7 @@ public class BinarySearchTree {
     public BinarySearchTree(Node n) {
 	root = n;
     }
-
+    
     public Node BinarySearch(Integer i) {
 	Node temp = root;
 	while (temp != null) {
@@ -20,7 +20,7 @@ public class BinarySearchTree {
 	}
 	return null;
     }
-
+    
     public void insert(Node n) {
 	int c = 0;
 	Node follow = null;
@@ -41,5 +41,23 @@ public class BinarySearchTree {
 	} else {
 	    follow.setRight(n);
 	}
+    }
+
+    public Node search(Node t, Integer i) {
+	if (t == null) {
+	    return null;
+	} else {
+	    int c = i.compareTo(t.getData());
+	    if (c > 0) {
+		return search(t.getRight(), i);
+	    } else if (c < 0) {
+		return search(t.getLeft(), i);
+	    } else {
+		return t;
+	    }
+	}
+    }
+
+    public void insert(Node t, Integer i) {
     }
 }
