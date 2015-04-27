@@ -13,6 +13,8 @@ public class Driver {
 	    bts.insert(r.nextInt(100));
 	}
 
+	System.out.println(bts);
+
 	System.out.println(bts.search(47));
     }
 }

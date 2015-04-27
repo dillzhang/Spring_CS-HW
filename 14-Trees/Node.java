@@ -1,4 +1,5 @@
 public class Node {
+
     private Node previous;
     private Node left, right;
     private Integer data;

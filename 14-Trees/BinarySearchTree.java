@@ -5,7 +5,23 @@ public class BinarySearchTree {
     public BinarySearchTree(Node n) {
 	root = n;
     }
-    
+
+    public String toString() {
+	return toString(root);
+    }
+
+    public String toString(Node n) {
+	String str = "";
+	
+	if (n != null) {
+	    str += n.getLeft() + " <- " + n + " -> " + n.getRight() + "\n";
+	    str += toString(n.getLeft());
+	    str += toString(n.getRight());
+	}
+
+	return str;
+    }
+
     public Node search(Integer i) {
 	Node temp = root;
 	while (temp != null) {
