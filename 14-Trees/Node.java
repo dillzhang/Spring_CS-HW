@@ -6,6 +6,10 @@ public class Node {
     public Node(Integer i) {
 	data = i;
     }
+    
+    public String toString() {
+	return "" + data;
+    }
 
     public void setPrevious(Node n) {
 	previous = n;
