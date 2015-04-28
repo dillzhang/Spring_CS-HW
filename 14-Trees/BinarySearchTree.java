@@ -80,6 +80,10 @@ public class BinarySearchTree {
 	    follow.setRight(n);
 	}
     }
+    
+    public Node delete(Integer i) {
+	return root;
+    }
 
     public Node search(Node t, Integer i) {
 	if (t == null) {
