@@ -7,21 +7,39 @@ public class BinarySearchTree {
     }
 
     public String toString() {
-	return toString(root);
+	return toString("", root);
     }
 
+    public String toString(String symbol, Node n) {
+	String str = "";
+	if (n.getLeft() != null) {
+	    str += toString(symbol + "<",n.getLeft());
+	}
+	str += symbol + n + "\n";
+	if (n.getRight() != null) {
+	    str += toString(symbol + ">",n.getRight());
+	}
+	return str;
+    }
+    
+    /*
+    public String toString() {
+	return toString(root);
+    }
+      
     public String toString(Node n) {
 	String str = "";
 	
 	if (n != null) {
-	    str += n.getLeft() + " <- " + n + " -> " + n.getRight() + "\n";
 	    str += toString(n.getLeft());
+	    str += n.getLeft() + " <- " + n + " -> " + n.getRight() + "\n";
 	    str += toString(n.getRight());
 	}
 
 	return str;
     }
-
+    */
+    
     public Node search(Integer i) {
 	Node temp = root;
 	while (temp != null) {
