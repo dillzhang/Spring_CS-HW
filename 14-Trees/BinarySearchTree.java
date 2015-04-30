@@ -82,7 +82,71 @@ public class BinarySearchTree {
     }
     
     public Node delete(Integer i) {
-	return root;
+	int c = i.compareTo(root.getData());
+	Node follow = null;
+	Node temp = root;
+
+	while (temp != null && c != 0) {
+	    follow = temp;
+	    if (c < 0) {
+		temp = temp.getLeft();
+	    } else if (c > 0) {
+		temp = temp.getRight();
+	    }
+	    c = i.compareTo(temp.getData());
+	}
+	
+	if (temp == null) {
+	    return null;
+	}
+
+	//System.out.println("Post Finder " + follow); 
+
+	Node setter = null;
+
+	if (temp.getLeft() == null && temp.getRight() == null) {
+	    //Default
+	} else if (temp.getLeft() == null) {
+	    setter = temp.getRight();
+	} else if (temp.getRight() == null) {
+	    setter = temp.getLeft();
+	} else {
+	    Node finder = temp.getLeft();
+	    while (finder.getRight() != null) {
+		finder = finder.getRight();
+		//System.out.println(finder + " " + finder.getRight());
+	    }
+
+	    setter = finder;
+	    //System.out.println(finder);
+	    
+	    delete(finder.getData());
+	    //System.out.println("Post Delete");
+	    //System.out.println(setter + " " + finder);
+
+	    setter.setLeft(temp.getLeft());
+	    setter.setRight(temp.getRight());
+	    //System.out.println("Post Setter");
+	    
+	}
+	
+	//System.out.println(follow);
+	
+	if (follow == null) {
+	    root = setter;
+	} else {
+	    int b = i.compareTo(follow.getData());
+	    //System.out.println("Post Compare");
+	    
+	    if (b < 0) {
+		follow.setLeft(setter);
+	    } else {
+		follow.setRight(setter);
+	    }
+	}
+
+	return temp;
+	    
     }
 
     public Node search(Node t, Integer i) {

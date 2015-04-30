@@ -23,9 +23,13 @@ public class Driver {
 
 	int[] adds = {40, 50, 20, 7, 33, 60, 21, 5, 23, 13};
 
-	for (int i = 0; i < adds.length; i++) {
+	for (int i = 1; i < adds.length; i++) {
 	    bts.insert(adds[i]);
 	}
+	
+	System.out.println(bts);
+	
+	System.out.println("Remove " + bts.delete(40));
 
 	System.out.println(bts);
     }
