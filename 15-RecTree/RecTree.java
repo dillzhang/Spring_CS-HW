@@ -26,7 +26,7 @@ public class RecTree {
 	if (n == null) {
 	    return 0;
 	} else {
-	    return Math.max(n.getValue(), Math.max(n.getLeft(), n.getRight()));
+	    return Math.max(n.getData(), Math.max(maxValue(n.getLeft()), maxValue(n.getRight())));
 	}
     }
 
@@ -67,10 +67,10 @@ public class RecTree {
     }
 
     public int longest() {
-	return longest(root, 0);
+	return longest(root);
     }
 
-    public int longest(Node n, int i) {
+    public int longest(Node n) {
 	if (n == null) {
 	    return 0;
 	} else {
